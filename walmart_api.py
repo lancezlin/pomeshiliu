@@ -9,10 +9,11 @@ while True:
 	if len(product) < 1:
 		break
 
-	url = walmarturl + urllib.urlencode({'query' : product})
-	print 'retrieving', url
+	values = urllib.urlencode({'query' : product})
+	req_url = urllib2.Request(walmarturl + values)
+	print 'retrieving', req_url
 
-	url_open = urllib.urlopen(url)
+	url_open = urllib2.urlopen(req_url)
 	data = url_open.read()
 	print len(data), "characters."
 
@@ -33,6 +34,7 @@ while True:
 
 	print "first item id is: ", item_id
 	print "first item name is: ", prod_name
+	break
 '''
 try:
 	import urllib
