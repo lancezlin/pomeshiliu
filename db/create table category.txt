@@ -1,0 +1,20 @@
+CREATE TABLE pomeshiliu.category (
+	cat_id BIGINT NULL,
+	cat_name VARCHAR(255) NULL,
+	cat_path VARCHAR(1000) NULL,
+	company_name VARCHAR(255) NULL,
+	PRIMARY KEY (cat_id) );
+
+CREATE TABLE pomeshiliu.subcategory (
+	subcat_id BIGINT NULL,
+	subcat_name VARCHAR(255) NULL,
+	subcat_path VARCHAR(1000) NULL,
+	parent_cat BIGINT NULL REFERENCES category(cat_id),
+	PRIMARY KEY (subcat_id) );
+
+CREATE TABLE pomeshiliu.ancecategory (
+	anccat_id BIGINT NULL,
+	anccat_name VARCHAR(255) NULL,
+	anccat_path VARCHAR(1000) NULL,
+	sub_cat BIGINT NULL REFERENCES subcategory(subcat_id),
+	PRIMARY KEY (anccat_id) );
