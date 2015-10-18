@@ -18,3 +18,10 @@ CREATE TABLE pomeshiliu.ancecategory (
 	anccat_path VARCHAR(1000) NULL,
 	sub_cat BIGINT NULL REFERENCES subcategory(subcat_id),
 	PRIMARY KEY (anccat_id) );
+
+CREATE TABLE pomeshiliu.product (
+	prod_id INT NOT NULL,
+	prod_name VARCHAR(255) NULL,
+	prod_desc TEXT NULL,
+	prod_anccat BIGINT NULL REFERENCES ancecategory(anccat_id),
+	prod_company )

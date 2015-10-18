@@ -1,4 +1,4 @@
-import json
+'''import json
 import urllib
 import urllib2
 
@@ -37,8 +37,7 @@ while True:
 	break
 '''
 try:
-	import urllib
-	print "urllib installed"
+	import MySQLdb
+	print "connector installed"
 except ImportError:
 	print "Error"
-	'''

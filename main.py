@@ -8,6 +8,14 @@ import os
 import urllib2
 
 app = Flask(__name__)
+mysql = MySQL()
+
+# MySQL configurations
+app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'Pi=3.1415926'
+app.config['MYSQL_DATABASE_DB'] = 'pomeshiliu'
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+mysql.init_app(app)
 
 @app.route("/")
 def main():
