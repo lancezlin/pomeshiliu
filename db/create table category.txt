@@ -1,22 +1,25 @@
+DROP TABLE IF EXISTS category;
 CREATE TABLE pomeshiliu.category (
-	cat_id BIGINT NULL,
+	cat_id VARCHAR(255) NULL,
 	cat_name VARCHAR(255) NULL,
 	cat_path VARCHAR(1000) NULL,
 	company_name VARCHAR(255) NULL,
 	PRIMARY KEY (cat_id) );
 
+DROP TABLE IF EXISTS subcategory;
 CREATE TABLE pomeshiliu.subcategory (
-	subcat_id BIGINT NULL,
+	subcat_id VARCHAR(255) NULL,
 	subcat_name VARCHAR(255) NULL,
 	subcat_path VARCHAR(1000) NULL,
-	parent_cat BIGINT NULL REFERENCES category(cat_id),
+	parent_cat VARCHAR(255) NULL REFERENCES category(cat_id),
 	PRIMARY KEY (subcat_id) );
 
+DROP TABLE IF EXISTS ancecategory;
 CREATE TABLE pomeshiliu.ancecategory (
-	anccat_id BIGINT NULL,
+	anccat_id VARCHAR(255) NULL,
 	anccat_name VARCHAR(255) NULL,
 	anccat_path VARCHAR(1000) NULL,
-	sub_cat BIGINT NULL REFERENCES subcategory(subcat_id),
+	sub_cat VARCHAR(255) NULL REFERENCES subcategory(subcat_id),
 	PRIMARY KEY (anccat_id) );
 
 CREATE TABLE pomeshiliu.product (
