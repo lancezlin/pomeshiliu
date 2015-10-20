@@ -10,9 +10,12 @@ try:
     print 'yes'
     cursor = cnx.cursor()
     
-    cursor.execute("""SELECT * FROM ancecategory""")
+    cursor.execute("""SELECT cat_id FROM category""")
     data = cursor.fetchall()
-    print data
+    idlist = []
+    for item in data:
+        idlist.append(int(item[0]))
+    print idlist
 
     '''
     cursor.execute("""INSERT INTO category (cat_id, cat_name, cat_path, company_name) VALUES (%s, %s, %s, %s)""", (1, "Toys", "Toys", "Walmart"))
