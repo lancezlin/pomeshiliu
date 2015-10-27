@@ -6,13 +6,14 @@ import MySQLdb
 #from mysql.connector import errorcode
 
 
-feed_api_url = 'http://api.walmartlabs.com/v1/feeds/items?apiKey=f2v2kpfp5jnrk5mzp9unjjb3&categoryId=3944'
+feed_api_url = 'http://api.walmartlabs.com/v1/feeds/items?apiKey=f2v2kpfp5jnrk5mzp9unjjb3&categoryId=3944_133277'
+#http://api.walmartlabs.com/v1/feeds/items?apiKey=f2v2kpfp5jnrk5mzp9unjjb3&categoryId=3944'
 
 while True:
     #values = urllib.urlencode({'categoryId' : 2636})
-    req = urllib2.Request(feed_api_url)
+    #req = urllib.Request(feed_api_url)
     try:
-        url_open = urllib2.urlopen(req)
+        url_open = urllib.urlopen(feed_api_url)
     except IOError, e:
         if hasattr(e, 'reason'):
             print e.reason
